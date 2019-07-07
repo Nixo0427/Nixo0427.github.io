@@ -346,6 +346,29 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/07/07/HashMap个人理解/" >
+            
+                <span>HashMap个人理解</span>
+        </a>
+        <div class="abstract-content">
+            HashMap是由数组和链表组成，通过get/put以键值对的形式进行读取和存储，存储时通过HashMap的hash方法将key进行hash计算key的hashcode上16位异或下16位计算，这样计算性能上的开销比较低，而且不容易发生碰撞，得出hash值在通过数组的长度，计算出数组下角标，当我们存入时会发生几种情况，第一种是hashMap中没有存储过该hash值得数据，我们就直接插入，如果数组中存在该hash值得数据，我们将通过equals方法进行内容比对，如果返回true，我们将value覆盖，如果返回false，我们则插入在链表当1.7之前是头插法，1。7之后改为尾插法中，数组每一...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/07</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/07/05/HashMap面试题/" >
             
                 <span>HashMap 面试题</span>
@@ -700,9 +723,20 @@ Activity跨进程启动 请求进程A startA...
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 7
+        Total : 8
         </div>
         <!-- search  -->
         
@@ -785,6 +819,20 @@ Activity跨进程启动 请求进程A startA...
     
         <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/07/05/HashMap面试题/" >HashMap 面试题</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/07/07/HashMap个人理解/" >HashMap个人理解</a>
         </li>
     
     </div>
