@@ -266,7 +266,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">601</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">605</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -448,7 +448,11 @@ height:50vh;
 <li>MessageQueue</li>
 <li>ThreadLocal（如果是4个就去掉ThreadLocal）</li>
 </ul>
-<h2 id="Dalvik虚拟机是什么，有什么用，他与JVM的区别"><a href="#Dalvik虚拟机是什么，有什么用，他与JVM的区别" class="headerlink" title="Dalvik虚拟机是什么，有什么用，他与JVM的区别"></a>Dalvik虚拟机是什么，有什么用，他与JVM的区别</h2><p>Dalvik是Android虚拟机，他基于寄存器使得编译时间更短，执行效率更快，占用内存更少，他可以编译APK中的dex文件(将所有的class统一整合成的dex),相对于JVM虚拟机而言，JVM是基于栈的，所以对比JVM，寄存器用部分区域式的存储，就会比基于条形的栈更快很多，更适合移动平台，在编译的程序上，Dalvik是编译APK执行APK中的dex文件，而JVM是编译Java执行java中的class文件。</p>
+<h2 id="Dalvik虚拟机是什么，有什么用，他与JVM的区别"><a href="#Dalvik虚拟机是什么，有什么用，他与JVM的区别" class="headerlink" title="Dalvik虚拟机是什么，有什么用，他与JVM的区别"></a>Dalvik虚拟机是什么，有什么用，他与JVM的区别</h2><p>Dalvik是Android虚拟机，他基于寄存器使得编译时间更短，执行效率更快，占用内存更少，他可以编译APK中的dex文件(将所有的class统一整合成的dex),相对于JVM虚拟机而言，JVM是基于栈的，所以对比JVM，寄存器用部分区域式的存储，就会比基于条形的栈更快很多，更适合移动平台，在编译的程序上，<br>执行的直接码文件不同</p>
+<ul>
+<li>JVM(.java -&gt; .class -&gt; .jar)</li>
+<li>DVM(.java -&gt; .class -&gt; .dex(APK当中))</li>
+</ul>
 
     </article>
     <!-- license  -->
