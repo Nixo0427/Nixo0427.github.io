@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Activity的启动流程是怎样的？ · Nixo Home</title>
+    <title>蓝瓴笔试题笔经 · Nixo Home</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/" >Nixo Home</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">Activity的启动流程是怎样的？</a>
+                <a href="#" class="post-name">蓝瓴笔试题笔经</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Activity的启动流程是怎样的？
+            蓝瓴笔试题笔经
             <!-- 404 -->
             
         </h1>
@@ -266,12 +266,12 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">691</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">601</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/07/01</span>
+                    <span class="post-intro-time">2019/07/15</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -395,56 +395,60 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h1 id="问题-Activity的启动流程是怎样的？"><a href="#问题-Activity的启动流程是怎样的？" class="headerlink" title="问题:Activity的启动流程是怎样的？"></a>问题:Activity的启动流程是怎样的？</h1><ul>
-<li>是否熟悉Activity启动过程中与AMS交互过程(高级)</li>
-<li>是否熟悉Binder的通讯机制(高级)</li>
-<li>是否了解插件化框架如何 Hook Activity启动(高级)</li>
-<li>阐述Activity转场动画的实现原理可加分(中级) </li>
-<li>阐述Activity的窗口显示流程可加分(高级)</li>
+        <h1 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h1><h2 id="Android部分"><a href="#Android部分" class="headerlink" title="Android部分"></a>Android部分</h2><ul>
+<li>Android五大布局都有哪些</li>
+<li>Context是什么，它实现了哪些功能，它的实现类是什么？</li>
+<li>Intent都有那些属性</li>
+<li>Handler消息机制 5个组成部分</li>
+<li>Dalvik虚拟机是什么，有什么用，他与JVM的区别</li>
+<li>AsyncTask的使用，他与Handler+Thread的区别</li>
+<li>OOM怎么形成的，如何解决</li>
+<li>ANR是怎么产生的，如何定位问题</li>
+<li>IPC机制，Binder，以及其他两种分别是什么，进行几次数据拷贝</li>
+<li>热更新都用过哪些框架，它与其他热更新框架的区别，他是做怎么实现热更新的(APP启动流程上进行Hook替换)</li>
+<li>App启动流程详细说明(√)</li>
+<li>事件分发的三个方法，以及调用顺序(√)</li>
+<li>整个Android 是怎么启动的，具体的启动流程</li>
 </ul>
-<h1 id="题目剖析-Activity、启动流程"><a href="#题目剖析-Activity、启动流程" class="headerlink" title="题目剖析 Activity、启动流程"></a>题目剖析 Activity、启动流程</h1><ul>
-<li>与AMS如何交互</li>
-<li>Activity的参数和结果如何传递</li>
-<li>Activity如何实例化</li>
-<li>Activity生命周期如何流转</li>
-<li>Activity的窗口如何展示</li>
-<li>Activity转场动画的实现机制</li>
+<h2 id="Java部分"><a href="#Java部分" class="headerlink" title="Java部分"></a>Java部分</h2><ul>
+<li>反射怎么获取私有对象(Field √)</li>
+<li>反射怎么获取一个类的所有方法</li>
+<li>反射怎么获取一个类的所有public对象(设置Modifer √)</li>
+<li>反射怎么获取一个类中的所有注解</li>
+<li>反射怎么获取对象的真实类型(getGenericReturnType √)</li>
+<li>反射怎么获取方法参数类型(getActualTypeArguments √)</li>
+<li>注解怎么获取参数类型</li>
 </ul>
-<h1 id="Activity跨进程启动"><a href="#Activity跨进程启动" class="headerlink" title="Activity跨进程启动"></a>Activity跨进程启动</h1><p> 请求进程A startActivity(通过AMP[AMS的Android客户端代理]])发送请求[Binder通信]</p>
-<p> system_server进程接收请求 通过AMS(Android Manger Server Android系统服务)接收请求处理{</p>
+<h1 id="Android部分-1"><a href="#Android部分-1" class="headerlink" title="Android部分"></a>Android部分</h1><h2 id="Android-常用的5个布局"><a href="#Android-常用的5个布局" class="headerlink" title="Android 常用的5个布局"></a>Android 常用的5个布局</h2><ul>
+<li>LinearLayout(线性布局)</li>
+<li>RelativeLayout(相对布局)</li>
+<li>TableLayout(表格布局)</li>
+<li>FrameLayout(框架布局)</li>
+<li>AbsoluteLayout(绝对布局)</li>
+</ul>
+<h2 id="Context"><a href="#Context" class="headerlink" title="Context"></a>Context</h2><ul>
+<li>Context是一个抽象类，它主要实现了对资源的访问.getResouces,应用中Context的数量等于Activity的个数 + Service的个数 + 1，这个1为Application,他的实现类为ContextImpl</li>
+</ul>
+<h2 id="Intent都有哪些属性"><a href="#Intent都有哪些属性" class="headerlink" title="Intent都有哪些属性"></a>Intent都有哪些属性</h2><p>启动{</p>
 <ul>
-<li>解析Activity信息</li>
-<li>处理启动参数</li>
-<li>启动目标进程</li>
-<li>绑定新进程<br>}</li>
+<li>ComponentName(显式)</li>
+<li>Action(隐式)</li>
+<li>Category(隐式)<br>}
+传值{</li>
+<li>Data(隐式)</li>
+<li>Type(隐式)</li>
+<li>Extra(隐式、显式)<br>}
+启动模式{</li>
+<li>Flag<br>}</li>
 </ul>
-<p>AMS通过Zygote开启进程B，然后使用ATP(Application Thread)[Binder通信]将数据绑定在进程从而启动进程B</p>
-<h1 id="Activity进程内启动"><a href="#Activity进程内启动" class="headerlink" title="Activity进程内启动"></a>Activity进程内启动</h1><p>请求进程A startActivity(AMP)-&gt; system_server进程</p>
-<p>system_server进程接收到AMS后{</p>
-<ul>
-<li>解析Activity信息</li>
-<li>处理启动参数<br>}(ATP)-&gt; 请求进程A(ApplicationThread)</li>
+<h2 id="Handler消息机制-5个组成部分"><a href="#Handler消息机制-5个组成部分" class="headerlink" title="Handler消息机制 5个组成部分"></a>Handler消息机制 5个组成部分</h2><ul>
+<li>Looper</li>
+<li>Handler</li>
+<li>Message</li>
+<li>MessageQueue</li>
+<li>ThreadLocal（如果是4个就去掉ThreadLocal）</li>
 </ul>
-<p>在这期间可以引出插件化的Hook点</p>
-<p>比如startActivity发送AMP前 我们Mainfest的栈坑替换为插件的栈在发送，system_server发送ATP后，到达ActivityThread启动Activity生命周期前这一步，将要启动的Activity替换为插件的Activity即可实现插件化的启动</p>
-<h1 id="Activity的参数传递"><a href="#Activity的参数传递" class="headerlink" title="Activity的参数传递"></a>Activity的参数传递</h1><p> 请求进程A(携带Bundle) -&gt; Binder缓冲区 -&gt; system_server进程(Bundle)</p>
-<ul>
-<li><p>大小受缓冲区大小限制</p>
-</li>
-<li><p>数据必须可以序列化</p>
-<p>↑解决方案<br>如果在同一个进程<br>Activity-&gt;ActivityB 传递Key，再用Key去拿外部存储的值即可(可以是内存，或者持久化){</p>
-</li>
-<li><p>跨进程需要实现进程通讯机制<br>}</p>
-</li>
-</ul>
-<h1 id="Activity和Fragment为什么不能弄有参数的构造器？"><a href="#Activity和Fragment为什么不能弄有参数的构造器？" class="headerlink" title="Activity和Fragment为什么不能弄有参数的构造器？"></a>Activity和Fragment为什么不能弄有参数的构造器？</h1><p>因为在Activity状态保存恢复的时候，他会将Fragment保存在Bundle中，当Bundle恢复Fragment的时候，他也是通过newInsatance创建出来，如果你的Fragment构造器有参数，那么他并不知道该如何创建出来，所以最好不要让Fragment和Activity的构造器有参数</p>
-<h1 id="Activity的窗口如何展示"><a href="#Activity的窗口如何展示" class="headerlink" title="Activity的窗口如何展示"></a>Activity的窗口如何展示</h1><p>从上到下顺序<br>new Activity<br>activity-attach(创建了PhoneWindow createPhoneWindow)<br>activity-create<br>activity-start<br>activity-restoreState<br>activity-postCreate(创建了Decor  installDecor)<br>activity-resume<br>activity-makeVisible(对DecorView进行绘制并展示)</p>
-<h1 id="本节回顾"><a href="#本节回顾" class="headerlink" title="本节回顾"></a>本节回顾</h1><ul>
-<li>Activity启动流程是一个庞大的题目，足够灵活</li>
-<li>启动过程中涉及到与AMS的交互与插件化紧密相关</li>
-<li>参数传递机制可与框架设计联系进行迁移</li>
-<li>生命周期与窗口展示可以向时间处理、UI绘制等话题迁移</li>
-</ul>
+<h2 id="Dalvik虚拟机是什么，有什么用，他与JVM的区别"><a href="#Dalvik虚拟机是什么，有什么用，他与JVM的区别" class="headerlink" title="Dalvik虚拟机是什么，有什么用，他与JVM的区别"></a>Dalvik虚拟机是什么，有什么用，他与JVM的区别</h2><p>Dalvik是Android虚拟机，他基于寄存器使得编译时间更短，执行效率更快，占用内存更少，他可以编译APK中的dex文件(将所有的class统一整合成的dex),相对于JVM虚拟机而言，JVM是基于栈的，所以对比JVM，寄存器用部分区域式的存储，就会比基于条形的栈更快很多，更适合移动平台，在编译的程序上，Dalvik是编译APK执行APK中的dex文件，而JVM是编译Java执行java中的class文件。</p>
 
     </article>
     <!-- license  -->
@@ -453,17 +457,12 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2019/07/01/如何跨进程启动Activity/" title= "如何跨App启动Activity？有哪些注意事项？">
-                    <div class="nextTitle">如何跨App启动Activity？有哪些注意事项？</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2019/06/21/hello-world/" title= "Hello World">
-                    <div class="prevTitle">Hello World</div>
+                <a href= "/2019/07/07/HashMap个人理解/" title= "HashMap个人理解">
+                    <div class="prevTitle">HashMap个人理解</div>
                 </a>
             
         </li>
@@ -586,7 +585,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#问题-Activity的启动流程是怎样的？"><span class="toc-number">1.</span> <span class="toc-text">问题:Activity的启动流程是怎样的？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#题目剖析-Activity、启动流程"><span class="toc-number">2.</span> <span class="toc-text">题目剖析 Activity、启动流程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Activity跨进程启动"><span class="toc-number">3.</span> <span class="toc-text">Activity跨进程启动</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Activity进程内启动"><span class="toc-number">4.</span> <span class="toc-text">Activity进程内启动</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Activity的参数传递"><span class="toc-number">5.</span> <span class="toc-text">Activity的参数传递</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Activity和Fragment为什么不能弄有参数的构造器？"><span class="toc-number">6.</span> <span class="toc-text">Activity和Fragment为什么不能弄有参数的构造器？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Activity的窗口如何展示"><span class="toc-number">7.</span> <span class="toc-text">Activity的窗口如何展示</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#本节回顾"><span class="toc-number">8.</span> <span class="toc-text">本节回顾</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#主要内容"><span class="toc-number">1.</span> <span class="toc-text">主要内容</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Android部分"><span class="toc-number">1.1.</span> <span class="toc-text">Android部分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java部分"><span class="toc-number">1.2.</span> <span class="toc-text">Java部分</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Android部分-1"><span class="toc-number">2.</span> <span class="toc-text">Android部分</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Android-常用的5个布局"><span class="toc-number">2.1.</span> <span class="toc-text">Android 常用的5个布局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Context"><span class="toc-number">2.2.</span> <span class="toc-text">Context</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Intent都有哪些属性"><span class="toc-number">2.3.</span> <span class="toc-text">Intent都有哪些属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Handler消息机制-5个组成部分"><span class="toc-number">2.4.</span> <span class="toc-text">Handler消息机制 5个组成部分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dalvik虚拟机是什么，有什么用，他与JVM的区别"><span class="toc-number">2.5.</span> <span class="toc-text">Dalvik虚拟机是什么，有什么用，他与JVM的区别</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
