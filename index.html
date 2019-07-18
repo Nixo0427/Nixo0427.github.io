@@ -359,6 +359,39 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/07/18/内存优化2/" >
+            
+                <span>内存优化2 - OOM面试题</span>
+        </a>
+        <div class="abstract-content">
+            OOM
+1.什么事是OOM
+2.一些容易混淆的概念
+3.如何解决OOM
+
+什么是OOM 在线上项目中异常后台日志中会看到一些OOM的异常，OOM其实就是当我们使用的内存加上申请的内存大于Dailvk虚拟机最大的内存限制，就会出现Out of memory异常，也就是内存溢出，内存不够导致的，大部分OOM问题都跟Bitmap加载相关。
+容易混淆的概念  内存溢出/内存泄漏/内存抖动
+
+内存溢出(OOM)
+内存抖动(内存抖动是短时间内大量的对象被创建出来，然后瞬间的释放，瞬间产生的对象会严重的占用内存区域，然后频繁的触发GC)
+内存泄漏(进程中的对象已经不被其他对象引用到了，但是他们可以直接...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/18</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/07/17/内存优化/" >
             
                 <span>内存优化</span>
@@ -645,36 +678,11 @@ Activity跨进程启动 请求进程A startA...
         </div>
     </article>
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/06/21/hello-world/" >
-            
-                <span>Hello World</span>
-        </a>
-        <div class="abstract-content">
-            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post1$ hexo new "My New Post"
-
-More info: Writing
-Run server1$ hexo server
-
-Mo...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/21</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
     <!-- paginator  -->
+    
+    <nav class="page-nav">
+        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">NEXT &#62;</a>
+    </nav>
     
 </main>
             <!-- profile -->
@@ -960,9 +968,20 @@ Mo...
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 10
+        Total : 11
         </div>
         <!-- search  -->
         
@@ -1078,6 +1097,20 @@ Mo...
     
         <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/07/17/内存优化/" >内存优化</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/07/18/内存优化2/" >内存优化2 - OOM面试题</a>
         </li>
     
     </div>
