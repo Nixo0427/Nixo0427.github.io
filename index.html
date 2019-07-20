@@ -359,6 +359,38 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/07/20/Activity启动流程/" >
+            
+                <span>Activity启动流程</span>
+        </a>
+        <div class="abstract-content">
+            首先Activity启动需要使用到6个点，分别是
+
+AMS
+ActivityStackSupervisor
+ActivityStack
+ActivityManagerServce
+PackageManagerService
+ActivityThread
+
+ 首先laucher点击后，调用startActivitySatefly 之后会调用Activity的startActivity 因为laucher也是一个Activity，之后startActivity内部其实是调用了startActivityForResult request是-1也就是没有回调，所以平时开发的时候，使用startA...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/20</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/07/18/内存优化2/" >
             
                 <span>内存优化2 - OOM面试题</span>
@@ -629,44 +661,6 @@ UI线程是什么? zygote 生成App进程后 打开ATP (ActivityThread) ATP执�
 共享uid的AppAppA（ActivityA） -&gt; AppB （ActivityB）
 在 mainfest中注册android:sharedUserId=”xxx.xxx”(AppA和AppB要一样)
 startActivity(Intent().setComponent(ComponentN...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/01</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/07/01/Activity的启动流程是怎样的/" >
-            
-                <span>Activity的启动流程是怎样的？</span>
-        </a>
-        <div class="abstract-content">
-            问题:Activity的启动流程是怎样的？
-是否熟悉Activity启动过程中与AMS交互过程(高级)
-是否熟悉Binder的通讯机制(高级)
-是否了解插件化框架如何 Hook Activity启动(高级)
-阐述Activity转场动画的实现原理可加分(中级) 
-阐述Activity的窗口显示流程可加分(高级)
-
-题目剖析 Activity、启动流程
-与AMS如何交互
-Activity的参数和结果如何传递
-Activity如何实例化
-Activity生命周期如何流转
-Activity的窗口如何展示
-Activity转场动画的实现机制
-
-Activity跨进程启动 请求进程A startA...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -979,9 +973,20 @@ Activity跨进程启动 请求进程A startA...
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 11
+        Total : 12
         </div>
         <!-- search  -->
         
@@ -1022,6 +1027,11 @@ Activity跨进程启动 请求进程A startA...
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/20</span><a class="archive-post-title" href= "/2019/07/20/Activity启动流程/" >Activity启动流程</a>
+        </li>
     
     
         <li class="archive-post-item">
