@@ -346,6 +346,222 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/07/15/蓝瓴笔试题笔经/" >
+            
+                <span>蓝瓴笔试题笔经</span>
+        </a>
+        <div class="abstract-content">
+            主要内容Android部分
+Android五大布局都有哪些
+Context是什么，它实现了哪些功能，它的实现类是什么？
+Intent都有那些属性
+Handler消息机制 5个组成部分
+Dalvik虚拟机是什么，有什么用，他与JVM的区别
+AsyncTask的使用，他与Handler+Thread的区别
+OOM怎么形成的，如何解决
+ANR是怎么产生的，如何定位问题
+IPC机制，Binder，以及其他两种分别是什么，进行几次数据拷贝
+热更新都用过哪些框架，它与其他热更新框架的区别，他是做怎么实现热更新的(APP启动流程上进行Hook替换)
+App启动流程详细说明(√)
+事件分发的三个方法，以...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/15</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/07/07/HashMap个人理解/" >
+            
+                <span>HashMap个人理解</span>
+        </a>
+        <div class="abstract-content">
+            HashMap是由数组和链表组成，通过get/put以键值对的形式进行读取和存储，存储时通过HashMap的hash方法将key进行hash计算key的hashcode上16位异或下16位计算，这样计算性能上的开销比较低，而且不容易发生碰撞，得出hash值在通过数组的长度，计算出数组下角标，当我们存入时会发生几种情况，第一种是hashMap中没有存储过该hash值得数据，我们就直接插入，如果数组中存在该hash值得数据，我们将通过equals方法进行内容比对，如果返回true，我们将value覆盖，如果返回false，我们则插入在链表当1.7之前是头插法，1。7之后改为尾插法中，数组每一...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/07</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/07/05/HashMap面试题/" >
+            
+                <span>HashMap 面试题</span>
+        </a>
+        <div class="abstract-content">
+            Q：HashMap 的数据结构？A：哈希表结构（链表散列：数组+链表）实现，结合数组和链表的优点。当链表长度超过 8 时，链表转换为红黑树，transient Node&lt;K,V&gt;[] table
+Q：HashMap 的工作原理？A：HashMap 底层是 hash 数组和单向链表实现，数组中的每个元素都是链表，由 Node 内部类（实现 Map.Entry&lt;K,V&gt;接口）实现，HashMap 通过 put &amp; get 方法存储和获取。存储对象时，将 K/V 键值传给 put() 方法：①、调用 hash(K) 方法计算 K 的 hash 值，然后结合数组长...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/05</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/07/05/线程面试题/" >
+            
+                <span>对Thread的理解？线程状态？阻塞和运行状态区别？</span>
+        </a>
+        <div class="abstract-content">
+            对Thread的理解，也可以理解为什么是Thread?他能做什么？
+线程是CPU调度的基本单位，一个进程可以有多个线程
+
+在java中线程有四种实现方式
+继承或者创建Thread类 并实现run方法；
+实现Ranable接口，实现接口中run方法；
+实现Callabe接口，通过FutureTask包装器来创建Thread线程Callable&lt;V&gt; oneCallable = new SomeCallable&lt;V&gt;();   
+//由Callable&lt;Integer&gt;创建一个FutureTask&lt;Integer&gt;对象：   
+FutureTa...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/05</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/07/01/如何stop一个线程/" >
+            
+                <span>如何停止一个线程？</span>
+        </a>
+        <div class="abstract-content">
+            如何停止一个线程面试官想考察什么?
+是否对线程的用法有所了解(初级)
+是否对线程的stop()方法有所了解(初级)
+是否对线程的stop过程中存在的问题有所认识(中级)
+是否熟悉interrupt中断的用法(中级)
+是否能解释清除使用boolean标志位的好处(高级)
+是否知道interrupt底层的细节(高级)
+是否能通过该题目转移话题到线程安全，并阐述无误(高级)
+
+剖析题目: 停止线程停止线程有stop()方法，但是已经废弃(因为直接stop一个线程会有锁以及资源没有被释放的问题)
+
+以上所述，不能简单的停止一个线程(而应该将线程中任务全部执行完毕或者关闭，让线程任务终止而结束)
+...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/01</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/07/01/Android为什么非UI线程不能更新UI/" >
+            
+                <span>Android中为什么非UI线程不能更新UI？</span>
+        </a>
+        <div class="abstract-content">
+            Android中为什么非UI线程不能更新UI？面试官视角
+是否理解线程安全的概念(中级)
+是否能够理解UI线程的工作机制(高级)
+是否熟悉SurfaceView实现高帧率的原理(高级)
+
+题目剖析(非UI线程更新UI)
+UI线程工作机制
+为什么UI设计成线程不安全的
+非UI线程一定不能更新UI吗
+
+UI线程是什么? zygote 生成App进程后 打开ATP (ActivityThread) ATP执行main函数 main函数里执行Looper.loop() 当loop死循环结束后会抛出异常
+主线程如何工作 Handler.dispatchMessage(分发) &lt;-  Loop...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/01</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/07/01/如何跨进程启动Activity/" >
+            
+                <span>如何跨App启动Activity？有哪些注意事项？</span>
+        </a>
+        <div class="abstract-content">
+            如何跨App启动Activity？有哪些注意事项面试官视角
+是否了解如何启动外部应用的Activity(初级)
+是否了解如何防止自己的Activity被外部非正当的启动(中级)
+是否对拒绝服务漏洞有所了解
+如何在开发时规避服务漏洞
+
+题目剖析
+跨App 、 注意事项(即使没问也要引出)
+
+共享uid的AppAppA（ActivityA） -&gt; AppB （ActivityB）
+在 mainfest中注册android:sharedUserId=”xxx.xxx”(AppA和AppB要一样)
+startActivity(Intent().setComponent(ComponentN...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/01</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/07/01/Activity的启动流程是怎样的/" >
             
                 <span>Activity的启动流程是怎样的？</span>
@@ -630,9 +846,100 @@ Mo...
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 12
+        Total : 19
         </div>
         <!-- search  -->
         
@@ -673,6 +980,31 @@ Mo...
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/24</span><a class="archive-post-title" href= "/2019/07/24/AIDL/" >[Untitled Post]</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/24</span><a class="archive-post-title" href= "/2019/07/24/Parcelable和Serializable的差异/" >Parcelable和Serializable的差异</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/24</span><a class="archive-post-title" href= "/2019/07/24/BindServce和StartServce调用顺序/" >BindServce和StartServce调用顺序</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/24</span><a class="archive-post-title" href= "/2019/07/24/Servce/" >Servce先导：线程，IntentServce，Binder等</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/24</span><a class="archive-post-title" href= "/2019/07/24/Servce与Thread区别/" >Servce与Thread使用场景与区别</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -767,6 +1099,34 @@ Mo...
     
         <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/07/18/内存优化2/" >内存优化2 - OOM面试题</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/07/24/WebView/" >[Untitled Post]</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/07/24/如何管理Servce/" >Servce与Thread使用场景与区别+IntentServce的区别</a>
         </li>
     
     </div>
