@@ -359,6 +359,38 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/07/25/AsyncTask/" >
+            
+                <span>[Untitled Post]</span>
+        </a>
+        <div class="abstract-content">
+            
+title WebView面试详解介绍AsyncTask内部是由handler+线程池实现的
+##优点
+
+由于AsyncTask内部提供了线程池，就会对我们的线程有一个很好地管理和控制，也能减少对于反复创建销毁线程的不必要的开销内部代码介绍
+asyncTask是个抽象类，需要子类继承
+onPreExecute() - 主线程执行的，是在任务执行前运行的可以做一些数据初始化操作
+doInBackground() - 子线程运行的，可以进行耗时操作
+onProgressUpdata() -主线程运行，在publishProgress()调用之后执行更新进度
+onPostExecute() ...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/25</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/07/24/WebView/" >
             
                 <span>[Untitled Post]</span>
@@ -629,44 +661,6 @@ ActivityThread
             <!-- date  -->
             <div class="abstract-date">
                 <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/18</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/07/17/内存优化/" >
-            
-                <span>内存优化</span>
-        </a>
-        <div class="abstract-content">
-            如何避免OOM产生考点
-对Java内存管理机制有一定认知
-Android内存优化经验
-代码编写习惯避免内存消耗
-
-如何避免OOM产生(原因)
-OOM如何产生？
-如何优化程序减少内存占用
-
-如何产生OOM？
-已使用内存+新申请内存&gt;可分配内存
-OOM几乎覆盖了所有内存，通常指堆内存
-Native Heap在物理内存不够时会抛出OOM
-
-如何解决OOM？
-使用合适的数据结构类型{  以HashMap为例展开优化  原数个数(&gt;1000 -&gt; HashMap else ArrayMap or SparseArray)  增删频繁吗(频繁-&gt;HashMap else Ar...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/17</span>
             </div>
             <!-- tags  -->
             
@@ -1076,9 +1070,22 @@ Native Heap在物理内存不够时会抛出OOM
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 19
+        Total : 20
         </div>
         <!-- search  -->
         
@@ -1266,6 +1273,20 @@ Native Heap在物理内存不够时会抛出OOM
     
         <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/07/24/如何管理Servce/" >Servce与Thread使用场景与区别+IntentServce的区别</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/07/25/AsyncTask/" >[Untitled Post]</a>
         </li>
     
     </div>

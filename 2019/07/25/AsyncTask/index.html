@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Hello World · Nixo Home</title>
+    <title>Nixo Home</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/" >Nixo Home</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">Hello World</a>
+                <a href="#" class="post-name"></a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Hello World
+            [Untitled Post]
             <!-- 404 -->
             
         </h1>
@@ -266,12 +266,12 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">73</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">635</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/06/21</span>
+                    <span class="post-intro-time">2019/07/25</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -395,19 +395,43 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <hr>
+<h2 id="title-WebView面试详解"><a href="#title-WebView面试详解" class="headerlink" title="title WebView面试详解"></a>title WebView面试详解</h2><h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>AsyncTask内部是由handler+线程池实现的</p>
+<p>##优点</p>
+<ul>
+<li>由于AsyncTask内部提供了线程池，就会对我们的线程有一个很好地管理和控制，也能减少对于反复创建销毁线程的不必要的开销<h2 id="内部代码介绍"><a href="#内部代码介绍" class="headerlink" title="内部代码介绍"></a>内部代码介绍</h2></li>
+<li>asyncTask是个抽象类，需要子类继承</li>
+<li>onPreExecute() - 主线程执行的，是在任务执行前运行的可以做一些数据初始化操作</li>
+<li>doInBackground() - 子线程运行的，可以进行耗时操作</li>
+<li>onProgressUpdata() -主线程运行，在publishProgress()调用之后执行更新进度</li>
+<li>onPostExecute()  - 主线程执行，任务执行完成后调用</li>
+</ul>
+<h2 id="使用注意"><a href="#使用注意" class="headerlink" title="使用注意"></a>使用注意</h2><ul>
+<li>AsyncTask实例必须在主线程创建</li>
+<li>AsyncTask的Eexecute()方法必须在主线程调用</li>
+<li>内部回调方法Android会自动执行，不需要手动回调</li>
+<li>一个AsyncTask只能调用一次execute()方法，不然会抛出异常</li>
+</ul>
+<h1 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h1><p>##线程池</p>
+<ul>
+<li>线程池线程数量是由CPU核心数量+1得到的，例如4核CPU就开5个线程</li>
+<li>最大线程池数量是由cpu核心数量x2+1得到的 如上4核x2+1 = 9</li>
+</ul>
+<p>##SerialExecutor<br>是用来存放Runnable对象的通过ArrayDeque来存放runable<br>它内部实现了一个execute方法，将runnable通过arraydeque的offer方法来添加到队尾实现run方法的内明内部以及调用scheduleNext方法来轮询下一个runnable传递给线程池</p>
+<h2 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h2><p>使用SerialExecutor来将runnable发送给线程池进行一个耗时任务的操作，AsyncTask默认是串行状态，它会经历三种Status枚举的状态，PENDDING , RUNNING,FINISHED,最后通过线程池的execute传入FutureTask执行任务</p>
+<h2 id="WeakerRunnable"><a href="#WeakerRunnable" class="headerlink" title="WeakerRunnable"></a>WeakerRunnable</h2><ul>
+<li>它内部是继承了Callable接口，Callable接口与Runnable接口很类似，不同的地方是Runnable没有返回值，而Callable是有返回值的，返回了泛型V对象</li>
+</ul>
+<h2 id="FutureTask"><a href="#FutureTask" class="headerlink" title="FutureTask"></a>FutureTask</h2><p>内部实现了Callable和Runnable接口</p>
+<ul>
+<li>构造函数，构造函数实现了传入的callable</li>
+<li>get()方法，是通过阻塞式等待Callabe的返回值</li>
+<li>done()方法，是callable回调结束后自己实现的方法</li>
+</ul>
+<p>##postResult()<br>在doInBackGround执行完成之后，AsyncTask内部会调用postResult来执行完成任务的处理</p>
+<ul>
+<li>内部调用了Hanlder去发送消息，在handleMessage中做相应的判断，调用AysncTask的finish传入回调返回的结果，在finish内部去判断任务是取消了，还是执行完毕了，如果是取消，就会执行相应的onCanced方法，如果是完毕了就会调用onPostExecute方法，最后将Status状态改为FINISHED。</li>
+</ul>
 
     </article>
     <!-- license  -->
@@ -416,13 +440,13 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2019/07/01/Activity的启动流程是怎样的/" title= "Activity的启动流程是怎样的？">
-                    <div class="nextTitle">Activity的启动流程是怎样的？</div>
-                </a>
-            
         </li>
         <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2019/07/24/WebView/" title= "">
+                    <div class="prevTitle">[Untitled Post]</div>
+                </a>
             
         </li>
     </ul>
@@ -544,7 +568,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#title-WebView面试详解"><span class="toc-number">1.</span> <span class="toc-text">title WebView面试详解</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#介绍"><span class="toc-number"></span> <span class="toc-text">介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#内部代码介绍"><span class="toc-number">1.</span> <span class="toc-text">内部代码介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用注意"><span class="toc-number">2.</span> <span class="toc-text">使用注意</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#源码分析"><span class="toc-number"></span> <span class="toc-text">源码分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#工作流程"><span class="toc-number">1.</span> <span class="toc-text">工作流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WeakerRunnable"><span class="toc-number">2.</span> <span class="toc-text">WeakerRunnable</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FutureTask"><span class="toc-number">3.</span> <span class="toc-text">FutureTask</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
