@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Servce与Thread使用场景与区别+IntentServce的区别 · Nixo Home</title>
+    <title>Nixo Home</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,23 +203,12 @@
 </head>
 
     
-        <body class="post-body">
-    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
-    
-    <div class="banner">
-            <div class="blog-title">
-                <a href="/" >Nixo Home</a>
-            </div>
-            <div class="post-title">
-                <a href="#" class="post-name">Servce与Thread使用场景与区别+IntentServce的区别</a>
-            </div>
-    </div>
     
     <a class="home-link" href=/>Nixo Home</a>
 </header>
@@ -231,68 +220,24 @@
 
 
 
-
-height:50vh;
 ">
     
     <!-- 主页  -->
-    
-    
-    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/index-page.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
-            
-            Servce与Thread使用场景与区别+IntentServce的区别
-            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
-            
-            <!-- 404 -->
-            
         </p>
         <!-- 文章页meta -->
-        
-            <div class="post-intros">
-                <!-- 文章页标签  -->
-                
-                
-                    <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">412</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
-                    </div>
-                
-                <div class="post-intro-meta">
-                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/07/24</span>
-                    
-                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
-                        <span class="iconfont-archer">&#xe602;</span>
-                        <span id="busuanzi_value_page_pv"></span>
-                    </span>
-                    
-                    <span class="shareWrapper">
-                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
-                        <span class="shareText">Share</span>
-                        <ul class="shareList">
-                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
-                                <div class="share-qrcode"></div>
-                            </li>
-                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
-                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
-                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
-                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
-                        </ul>
-                    </span>
-                </div>
-            </div>
         
     </div>
 </div>
@@ -393,68 +338,87 @@ height:50vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main post-page">
-    <article class="article-entry">
-        <p>如果一个Servce同时被StartServce还被BindServce的情况下，只调用stopServce没调用unBindServce是无法停止服务的(就算走了onDestory也无法停止)</p>
-<p>#Servce和IntentServce的区别</p>
-<ul>
-<li>Servce是运行在程序后台的，为了保证应用某些组件仍然可以工作，这时就会引用Servce组件的概念(Servce绝对不是一个独立的进程他也更不是一个独立的线程他是依赖于应用程序的主线程的)</li>
-</ul>
-<h1 id="IntentServce"><a href="#IntentServce" class="headerlink" title="IntentServce"></a>IntentServce</h1><p>intentServce是继承Servce去处理异步请求的一个类</p>
-<ul>
-<li><p>内部有一个工作线程HandlerThread来处理耗时操作任务</p>
-</li>
-<li><p>可以启动多次，每一次耗时操作都会以队列形式等候执行，不需要Stop，他执行完就会关闭</p>
-</li>
-<li><p>{
-与Servce不同的是IntentServce在onCreate生命周期时开了一个线程进行耗时操作，并创建了Looper绑定到HandlerThread，并将looper传给ServceHandler，这时ServceHandler就具有了异步执行任务的功能</p>
-</li>
-</ul>
-<p>在onStart生命周期通过handler.sendMessage发送了一个消息，Looper在消息队列中获取消息，再转给Handler处理</p>
-<p>Handler处理中调用了onHandleIntent方法(抽象方法，处理异步操作)，在onHandleIntent执行完毕之后，会调用stopSelf方法来结束服务</p>
-<p>}</p>
-<h1 id="IntentServce总结"><a href="#IntentServce总结" class="headerlink" title="IntentServce总结"></a>IntentServce总结</h1><ul>
-<li>IntentServce是继承并处理异步请求的一个类</li>
-<li>内有工作线程来处理耗时操作，每次执行一个耗时任务就必须启动一个IntentServce</li>
-<li>IntentServce内部则是通过消息的方式发送给HandlerThread的，然后由Handler来处理Looper中的消息(多个任务会以插入MessageQueue的顺序也就是调用顺序来执行)</li>
-</ul>
-
+            <main class="main index-page">
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/08/14/浅谈设计模式/" >
+            
+                <span>[Untitled Post]</span>
+        </a>
+        <div class="abstract-content">
+            
+title:Nixo浅谈设计模式前言
+在我眼里设计模式是对代码的一种高度封装，让代码从幼虫变为茧的过程，在Android开发中，有很多框架的设计模式都是非常优雅高效的，例如Retrofit2中使用了代理模式，适配器模式，构造者模式将框架设计的非常完美且扩展性Nice，再例如RxJava使用的观察者模式将我们的异步开发可以像同步开发一样流式使用，这都是设计模式的资深使用，如上的那些框架并不是个人开发的，是多个工程师一起设计，一起合作打造，而在我们这些小生眼里，去理解都要抽丝剥茧的去学习，去挖掘，回首运用在自己的项目当中，这也是我们学习框架的一个主要目的，那就是学习他们的设计理念，设计模式...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/14</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
     </article>
-    <!-- license  -->
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/08/08/Android 多进程/" >
+            
+                <span>[Untitled Post]</span>
+        </a>
+        <div class="abstract-content">
+            
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/08</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/08/07/为什么Loop的死循环不会导致APP ANR？/" >
+            
+                <span>[Untitled Post]</span>
+        </a>
+        <div class="abstract-content">
+            
+title:为什么Android主线程的looper.loop不会导致循环卡死Looper与Hnadler其实是通过CS模式由Binder进行通讯的
+只有主线程发送给Handler让Looper循环的消息中进行了耗时操作才会导致ANR，而Looper中不会，因为Looper在没有消息时会将线程睡眠。
+
+Looper并不是运行在主线程里的，他是运行在binder线程中，在ActivityThread的main()方法中创建好Looper和ActivityThread后通过thread.attach方法传递false创建了一个新的binder线程，在调用Looper.loop开启循环
+
+H...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/07</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
     
     <!-- paginator  -->
-    <ul class="post-paginator">
-        <li class="next">
-            
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2019/07/24/BindServce和StartServce调用顺序/" title= "BindServce和StartServce调用顺序">
-                    <div class="nextTitle">BindServce和StartServce调用顺序</div>
-                </a>
-            
-        </li>
-        <li class="previous">
-            
-                <div class="prevSlogan">Previous Post</div>
-                <a href= "/2019/07/24/Servce与Thread区别/" title= "Servce与Thread使用场景与区别">
-                    <div class="prevTitle">Servce与Thread使用场景与区别</div>
-                </a>
-            
-        </li>
-    </ul>
-    <!-- 评论插件 -->
-    <!-- 来必力City版安装代码 -->
-
-<!-- City版安装代码已完成 -->
     
-    
-    <!-- partial('_partial/comment/changyan') -->
-    <!--PC版-->
-
-
-    
-    
-
-    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -543,24 +507,6 @@ height:50vh;
 </footer>
     </div>
     <!-- toc -->
-    
-    <div class="toc-wrapper" style=
-    
-
-
-
-
-
-
-
-top:50vh;
-
-    >
-        <div class="toc-catalog">
-            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
-        </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#IntentServce"><span class="toc-number">1.</span> <span class="toc-text">IntentServce</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#IntentServce总结"><span class="toc-number">2.</span> <span class="toc-text">IntentServce总结</span></a></li></ol>
-    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1133,8 +1079,6 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
-    
-        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>

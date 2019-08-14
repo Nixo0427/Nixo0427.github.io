@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Servce与Thread使用场景与区别+IntentServce的区别 · Nixo Home</title>
+    <title>Nixo Home</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/" >Nixo Home</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">Servce与Thread使用场景与区别+IntentServce的区别</a>
+                <a href="#" class="post-name"></a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Servce与Thread使用场景与区别+IntentServce的区别
+            [Untitled Post]
             <!-- 404 -->
             
         </h1>
@@ -266,12 +266,12 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">412</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">757</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/07/24</span>
+                    <span class="post-intro-time">2019/08/14</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -395,28 +395,28 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>如果一个Servce同时被StartServce还被BindServce的情况下，只调用stopServce没调用unBindServce是无法停止服务的(就算走了onDestory也无法停止)</p>
-<p>#Servce和IntentServce的区别</p>
-<ul>
-<li>Servce是运行在程序后台的，为了保证应用某些组件仍然可以工作，这时就会引用Servce组件的概念(Servce绝对不是一个独立的进程他也更不是一个独立的线程他是依赖于应用程序的主线程的)</li>
+        <hr>
+<h2 id="title-Nixo浅谈设计模式"><a href="#title-Nixo浅谈设计模式" class="headerlink" title="title:Nixo浅谈设计模式"></a>title:Nixo浅谈设计模式</h2><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><ul>
+<li>在我眼里设计模式是对代码的一种高度封装，让代码从幼虫变为茧的过程，在Android开发中，有很多框架的设计模式都是非常优雅高效的，例如Retrofit2中使用了代理模式，适配器模式，构造者模式将框架设计的非常完美且扩展性Nice，再例如RxJava使用的观察者模式将我们的异步开发可以像同步开发一样流式使用，这都是设计模式的资深使用，如上的那些框架并不是个人开发的，是多个工程师一起设计，一起合作打造，而在我们这些小生眼里，去理解都要抽丝剥茧的去学习，去挖掘，回首运用在自己的项目当中，这也是我们学习框架的一个主要目的，那就是学习他们的设计理念，设计模式。</li>
 </ul>
-<h1 id="IntentServce"><a href="#IntentServce" class="headerlink" title="IntentServce"></a>IntentServce</h1><p>intentServce是继承Servce去处理异步请求的一个类</p>
-<ul>
-<li><p>内部有一个工作线程HandlerThread来处理耗时操作任务</p>
-</li>
-<li><p>可以启动多次，每一次耗时操作都会以队列形式等候执行，不需要Stop，他执行完就会关闭</p>
-</li>
-<li><p>{
-与Servce不同的是IntentServce在onCreate生命周期时开了一个线程进行耗时操作，并创建了Looper绑定到HandlerThread，并将looper传给ServceHandler，这时ServceHandler就具有了异步执行任务的功能</p>
-</li>
+<h1 id="设计模式有无好坏之分"><a href="#设计模式有无好坏之分" class="headerlink" title="设计模式有无好坏之分"></a>设计模式有无好坏之分</h1><ul>
+<li>首先同一个需求传递给两个同样优秀的架构师，他们大多数会打造出两款不同设计理念的框架，这两款框架都实现了同样的功能，那么他们有好坏之分吗，答案是没有的</li>
+<li>因为框架的设计，甚至代码的设计都是日积月累的得到的，在每个人眼里所谓的设计都会显得大同小异，这也是设计模式没有一个绝对的概念的原因。</li>
+<li>但是一个好的设计一定会做到以下几点因素。</li>
 </ul>
-<p>在onStart生命周期通过handler.sendMessage发送了一个消息，Looper在消息队列中获取消息，再转给Handler处理</p>
-<p>Handler处理中调用了onHandleIntent方法(抽象方法，处理异步操作)，在onHandleIntent执行完毕之后，会调用stopSelf方法来结束服务</p>
-<p>}</p>
-<h1 id="IntentServce总结"><a href="#IntentServce总结" class="headerlink" title="IntentServce总结"></a>IntentServce总结</h1><ul>
-<li>IntentServce是继承并处理异步请求的一个类</li>
-<li>内有工作线程来处理耗时操作，每次执行一个耗时任务就必须启动一个IntentServce</li>
-<li>IntentServce内部则是通过消息的方式发送给HandlerThread的，然后由Handler来处理Looper中的消息(多个任务会以插入MessageQueue的顺序也就是调用顺序来执行)</li>
+<h1 id="一个好的设计模式"><a href="#一个好的设计模式" class="headerlink" title="一个好的设计模式"></a>一个好的设计模式</h1><ul>
+<li><p>开闭性良好，假如这个设计可以对应未来一年的需求变动，不需要对其内部核心代码进行修改，那这个设计在开闭性上就是一个好的设计模式，如果不能满足大量的业务变更，那这个设计注定是失败的，因为在不断修改核心的过程中，会变得愈发耦合。</p>
+</li>
+<li><p>可维护性良好，如果一个业务需求的设计太过晦涩难懂，在别人眼里就是一份难以过目的天书，一旦设计者离职，后续开发者接手后则会眉头一紧(心中默念不如重写~)</p>
+</li>
+<li><p>性能良好，这点不用多说，性能很差，用户没有体验，何谈设计。</p>
+</li>
+<li><p>满足以上条件只能算是好的设计，跟优秀还是有很大的差距，那么怎么才能算优秀的设计呢，在满足以上的基础上我总结了一点经验可以参考</p>
+</li>
+<li><p>使用简洁，使用简洁带来的效益是很高的，从学习成本到开发效率，都会大大降低使用的门槛以及代码的可读性。</p>
+</li>
+<li><p>体积小，这个没有绝对的概念，需要看也无需求，要和业务需求成正比的基础上尽可能减小代码体积。</p>
+</li>
 </ul>
 
     </article>
@@ -426,17 +426,12 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2019/07/24/BindServce和StartServce调用顺序/" title= "BindServce和StartServce调用顺序">
-                    <div class="nextTitle">BindServce和StartServce调用顺序</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2019/07/24/Servce与Thread区别/" title= "Servce与Thread使用场景与区别">
-                    <div class="prevTitle">Servce与Thread使用场景与区别</div>
+                <a href= "/2019/08/08/Android 多进程/" title= "">
+                    <div class="prevTitle">[Untitled Post]</div>
                 </a>
             
         </li>
@@ -559,7 +554,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#IntentServce"><span class="toc-number">1.</span> <span class="toc-text">IntentServce</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#IntentServce总结"><span class="toc-number">2.</span> <span class="toc-text">IntentServce总结</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#title-Nixo浅谈设计模式"><span class="toc-number">1.</span> <span class="toc-text">title:Nixo浅谈设计模式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number"></span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#设计模式有无好坏之分"><span class="toc-number"></span> <span class="toc-text">设计模式有无好坏之分</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一个好的设计模式"><span class="toc-number"></span> <span class="toc-text">一个好的设计模式</span></a>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>

@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Servce与Thread使用场景与区别+IntentServce的区别 · Nixo Home</title>
+    <title>Nixo Home</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/" >Nixo Home</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">Servce与Thread使用场景与区别+IntentServce的区别</a>
+                <a href="#" class="post-name"></a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Servce与Thread使用场景与区别+IntentServce的区别
+            [Untitled Post]
             <!-- 404 -->
             
         </h1>
@@ -266,12 +266,12 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">412</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">576</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/07/24</span>
+                    <span class="post-intro-time">2019/08/07</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -395,29 +395,27 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>如果一个Servce同时被StartServce还被BindServce的情况下，只调用stopServce没调用unBindServce是无法停止服务的(就算走了onDestory也无法停止)</p>
-<p>#Servce和IntentServce的区别</p>
-<ul>
-<li>Servce是运行在程序后台的，为了保证应用某些组件仍然可以工作，这时就会引用Servce组件的概念(Servce绝对不是一个独立的进程他也更不是一个独立的线程他是依赖于应用程序的主线程的)</li>
-</ul>
-<h1 id="IntentServce"><a href="#IntentServce" class="headerlink" title="IntentServce"></a>IntentServce</h1><p>intentServce是继承Servce去处理异步请求的一个类</p>
-<ul>
-<li><p>内部有一个工作线程HandlerThread来处理耗时操作任务</p>
+        <hr>
+<h2 id="title-为什么Android主线程的looper-loop不会导致循环卡死"><a href="#title-为什么Android主线程的looper-loop不会导致循环卡死" class="headerlink" title="title:为什么Android主线程的looper.loop不会导致循环卡死"></a>title:为什么Android主线程的looper.loop不会导致循环卡死</h2><h1 id="Looper与Hnadler其实是通过CS模式由Binder进行通讯的"><a href="#Looper与Hnadler其实是通过CS模式由Binder进行通讯的" class="headerlink" title="Looper与Hnadler其实是通过CS模式由Binder进行通讯的"></a>Looper与Hnadler其实是通过CS模式由Binder进行通讯的</h1><ul>
+<li><p>只有主线程发送给Handler让Looper循环的消息中进行了耗时操作才会导致ANR，而Looper中不会，因为Looper在没有消息时会将线程睡眠。</p>
 </li>
-<li><p>可以启动多次，每一次耗时操作都会以队列形式等候执行，不需要Stop，他执行完就会关闭</p>
+<li><p>Looper并不是运行在主线程里的，他是运行在binder线程中，在ActivityThread的main()方法中创建好Looper和ActivityThread后通过thread.attach方法传递false创建了一个新的binder线程，在调用Looper.loop开启循环</p>
 </li>
-<li><p>{
-与Servce不同的是IntentServce在onCreate生命周期时开了一个线程进行耗时操作，并创建了Looper绑定到HandlerThread，并将looper传给ServceHandler，这时ServceHandler就具有了异步执行任务的功能</p>
+<li><p>Handler消息机制采用的是C/S架构，而Looper采用了服务端Binder接收系统服务AMS发送来的消息，比如说Binder通过Handler将Message发送给主线程</p>
+</li>
+<li><p>所以Looper.loop是运行在binder线程的，而不是主线程，就不会导致卡死的问题。</p>
+</li>
+<li><p>Binder线程(具体是指ApplicationThread,Binder的服务端，用于接收系统服务AMS发送来的事件的线程)</p>
 </li>
 </ul>
-<p>在onStart生命周期通过handler.sendMessage发送了一个消息，Looper在消息队列中获取消息，再转给Handler处理</p>
-<p>Handler处理中调用了onHandleIntent方法(抽象方法，处理异步操作)，在onHandleIntent执行完毕之后，会调用stopSelf方法来结束服务</p>
-<p>}</p>
-<h1 id="IntentServce总结"><a href="#IntentServce总结" class="headerlink" title="IntentServce总结"></a>IntentServce总结</h1><ul>
-<li>IntentServce是继承并处理异步请求的一个类</li>
-<li>内有工作线程来处理耗时操作，每次执行一个耗时任务就必须启动一个IntentServce</li>
-<li>IntentServce内部则是通过消息的方式发送给HandlerThread的，然后由Handler来处理Looper中的消息(多个任务会以插入MessageQueue的顺序也就是调用顺序来执行)</li>
+<h1 id="ActivityThread-并非线程"><a href="#ActivityThread-并非线程" class="headerlink" title="ActivityThread 并非线程"></a>ActivityThread 并非线程</h1><ul>
+<li>AndroidThread并非线程，不想HandlerThread，他没有继承Thread类，往往只是运行在主线程让人以为他就是主线程的感觉，其实他只是Zygote fork出来的进程而已。</li>
 </ul>
+<h1 id="IPC机制"><a href="#IPC机制" class="headerlink" title="IPC机制"></a>IPC机制</h1><ul>
+<li>IPC机制是两个进程间通讯的一种方式，进程间是互相访问不到的，所以需要开辟一块内核的缓冲区来进行拷贝读取，进程A拷贝到缓冲区，进程B进行读取，这种通讯方式就是IPC方式。</li>
+</ul>
+<p>#Activity生命周期流程(IPC)<br>线程1的AMS中调用线程2的ATP；（由于同一个进程的线程间资源共享，可以相互直接调用，但需要注意多线程并发问题）线程2通过binder传输到App进程的线程4；线程4通过handler消息机制，将暂停Activity的消息发送给主线程；主线程在looper.loop()中循环遍历消息，当收到暂停Activity的消息时，便将消息分发给ActivityThread.H.handleMessage()方法，再经过方法的调用，最后便会调用到Activity.onPause()，当onPause()处理完后，继续循环loop下去。</p>
+<p>作者：Gityuan<br>链接：<a href="https://www.zhihu.com/question/34652589/answer/90344494" target="_blank" rel="noopener">https://www.zhihu.com/question/34652589/answer/90344494</a><br>来源：知乎<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
 
     </article>
     <!-- license  -->
@@ -427,16 +425,16 @@ height:50vh;
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href= "/2019/07/24/BindServce和StartServce调用顺序/" title= "BindServce和StartServce调用顺序">
-                    <div class="nextTitle">BindServce和StartServce调用顺序</div>
+                <a href= "/2019/08/08/Android 多进程/" title= "">
+                    <div class="nextTitle">[Untitled Post]</div>
                 </a>
             
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2019/07/24/Servce与Thread区别/" title= "Servce与Thread使用场景与区别">
-                    <div class="prevTitle">Servce与Thread使用场景与区别</div>
+                <a href= "/2019/07/25/AsyncTask/" title= "">
+                    <div class="prevTitle">[Untitled Post]</div>
                 </a>
             
         </li>
@@ -559,7 +557,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#IntentServce"><span class="toc-number">1.</span> <span class="toc-text">IntentServce</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#IntentServce总结"><span class="toc-number">2.</span> <span class="toc-text">IntentServce总结</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#title-为什么Android主线程的looper-loop不会导致循环卡死"><span class="toc-number">1.</span> <span class="toc-text">title:为什么Android主线程的looper.loop不会导致循环卡死</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Looper与Hnadler其实是通过CS模式由Binder进行通讯的"><span class="toc-number"></span> <span class="toc-text">Looper与Hnadler其实是通过CS模式由Binder进行通讯的</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ActivityThread-并非线程"><span class="toc-number"></span> <span class="toc-text">ActivityThread 并非线程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#IPC机制"><span class="toc-number"></span> <span class="toc-text">IPC机制</span></a>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>

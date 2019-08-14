@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Servce与Thread使用场景与区别+IntentServce的区别 · Nixo Home</title>
+    <title>Nixo Home</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -77,8 +77,6 @@
 
     <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
-    
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
@@ -203,23 +201,14 @@
 </head>
 
     
-        <body class="post-body">
+        <body class="home-body">
     
     
-<header class="header">
+<header class="header index-header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
-    
-    <div class="banner">
-            <div class="blog-title">
-                <a href="/" >Nixo Home</a>
-            </div>
-            <div class="post-title">
-                <a href="#" class="post-name">Servce与Thread使用场景与区别+IntentServce的区别</a>
-            </div>
-    </div>
     
     <a class="home-link" href=/>Nixo Home</a>
 </header>
@@ -238,7 +227,7 @@ height:50vh;
     <!-- 主页  -->
     
     
-    <!-- 404页  -->
+    <!-- 文章页  -->
             
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-img" style="background-image: url(/intro/index-page.jpg)"></div>
@@ -247,8 +236,8 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Servce与Thread使用场景与区别+IntentServce的区别
-            <!-- 404 -->
+            Nixo Home
+            <!-- 文章页  -->
             
         </h1>
         <!-- 副标题 -->
@@ -256,43 +245,12 @@ height:50vh;
             <!-- 主页副标题  -->
             
             
-            <!-- 404 -->
+                抚子大爱w
+            
+            <!-- 文章页  -->
             
         </p>
         <!-- 文章页meta -->
-        
-            <div class="post-intros">
-                <!-- 文章页标签  -->
-                
-                
-                    <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">412</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
-                    </div>
-                
-                <div class="post-intro-meta">
-                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/07/24</span>
-                    
-                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
-                        <span class="iconfont-archer">&#xe602;</span>
-                        <span id="busuanzi_value_page_pv"></span>
-                    </span>
-                    
-                    <span class="shareWrapper">
-                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
-                        <span class="shareText">Share</span>
-                        <ul class="shareList">
-                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
-                                <div class="share-qrcode"></div>
-                            </li>
-                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
-                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
-                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
-                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
-                        </ul>
-                    </span>
-                </div>
-            </div>
         
     </div>
 </div>
@@ -393,70 +351,206 @@ height:50vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main post-page">
-    <article class="article-entry">
-        <p>如果一个Servce同时被StartServce还被BindServce的情况下，只调用stopServce没调用unBindServce是无法停止服务的(就算走了onDestory也无法停止)</p>
-<p>#Servce和IntentServce的区别</p>
-<ul>
-<li>Servce是运行在程序后台的，为了保证应用某些组件仍然可以工作，这时就会引用Servce组件的概念(Servce绝对不是一个独立的进程他也更不是一个独立的线程他是依赖于应用程序的主线程的)</li>
-</ul>
-<h1 id="IntentServce"><a href="#IntentServce" class="headerlink" title="IntentServce"></a>IntentServce</h1><p>intentServce是继承Servce去处理异步请求的一个类</p>
-<ul>
-<li><p>内部有一个工作线程HandlerThread来处理耗时操作任务</p>
-</li>
-<li><p>可以启动多次，每一次耗时操作都会以队列形式等候执行，不需要Stop，他执行完就会关闭</p>
-</li>
-<li><p>{
-与Servce不同的是IntentServce在onCreate生命周期时开了一个线程进行耗时操作，并创建了Looper绑定到HandlerThread，并将looper传给ServceHandler，这时ServceHandler就具有了异步执行任务的功能</p>
-</li>
-</ul>
-<p>在onStart生命周期通过handler.sendMessage发送了一个消息，Looper在消息队列中获取消息，再转给Handler处理</p>
-<p>Handler处理中调用了onHandleIntent方法(抽象方法，处理异步操作)，在onHandleIntent执行完毕之后，会调用stopSelf方法来结束服务</p>
-<p>}</p>
-<h1 id="IntentServce总结"><a href="#IntentServce总结" class="headerlink" title="IntentServce总结"></a>IntentServce总结</h1><ul>
-<li>IntentServce是继承并处理异步请求的一个类</li>
-<li>内有工作线程来处理耗时操作，每次执行一个耗时任务就必须启动一个IntentServce</li>
-<li>IntentServce内部则是通过消息的方式发送给HandlerThread的，然后由Handler来处理Looper中的消息(多个任务会以插入MessageQueue的顺序也就是调用顺序来执行)</li>
-</ul>
+            <main class="main index-page">
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/07/01/如何跨进程启动Activity/" >
+            
+                <span>如何跨App启动Activity？有哪些注意事项？</span>
+        </a>
+        <div class="abstract-content">
+            如何跨App启动Activity？有哪些注意事项面试官视角
+是否了解如何启动外部应用的Activity(初级)
+是否了解如何防止自己的Activity被外部非正当的启动(中级)
+是否对拒绝服务漏洞有所了解
+如何在开发时规避服务漏洞
 
+题目剖析
+跨App 、 注意事项(即使没问也要引出)
+
+共享uid的AppAppA（ActivityA） -&gt; AppB （ActivityB）
+在 mainfest中注册android:sharedUserId=”xxx.xxx”(AppA和AppB要一样)
+startActivity(Intent().setComponent(ComponentN...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/01</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
     </article>
-    <!-- license  -->
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/07/01/Activity的启动流程是怎样的/" >
+            
+                <span>Activity的启动流程是怎样的？</span>
+        </a>
+        <div class="abstract-content">
+            问题:Activity的启动流程是怎样的？
+是否熟悉Activity启动过程中与AMS交互过程(高级)
+是否熟悉Binder的通讯机制(高级)
+是否了解插件化框架如何 Hook Activity启动(高级)
+阐述Activity转场动画的实现原理可加分(中级) 
+阐述Activity的窗口显示流程可加分(高级)
+
+题目剖析 Activity、启动流程
+与AMS如何交互
+Activity的参数和结果如何传递
+Activity如何实例化
+Activity生命周期如何流转
+Activity的窗口如何展示
+Activity转场动画的实现机制
+
+Activity跨进程启动 请求进程A startA...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/01</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/06/21/hello-world/" >
+            
+                <span>Hello World</span>
+        </a>
+        <div class="abstract-content">
+            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick StartCreate a new post1$ hexo new "My New Post"
+
+More info: Writing
+Run server1$ hexo server
+
+Mo...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/21</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
     
     <!-- paginator  -->
-    <ul class="post-paginator">
-        <li class="next">
-            
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2019/07/24/BindServce和StartServce调用顺序/" title= "BindServce和StartServce调用顺序">
-                    <div class="nextTitle">BindServce和StartServce调用顺序</div>
-                </a>
-            
-        </li>
-        <li class="previous">
-            
-                <div class="prevSlogan">Previous Post</div>
-                <a href= "/2019/07/24/Servce与Thread区别/" title= "Servce与Thread使用场景与区别">
-                    <div class="prevTitle">Servce与Thread使用场景与区别</div>
-                </a>
-            
-        </li>
-    </ul>
-    <!-- 评论插件 -->
-    <!-- 来必力City版安装代码 -->
-
-<!-- City版安装代码已完成 -->
     
+    <nav class="page-nav">
+        <a class="extend prev" rel="prev" href="/page/2/">&#60; PREV</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    </nav>
     
-    <!-- partial('_partial/comment/changyan') -->
-    <!--PC版-->
-
-
-    
-    
-
-    <!-- 评论 -->
 </main>
             <!-- profile -->
+            
+            <div class="profile">
+    <img class="profile-avatar" alt="avatar" src= /avatar/Nixo.png >
+    <div class="profile-name">Nixo</div>
+    
+    <div class="profile-signature">
+        witness me
+    </div>
+    
+    
+    <div class="profile-social">
+        
+    
+        
+            
+                <a href="mailto:BraveNixo@Gmail.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/Nixo0427" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                  
+                  <img class="profile-qr" src="/assets/Cache_201207d022cf3d95.jpg" />
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="/\@BraveNixo" class="iconfont-archer twitter" target="_blank" title=twitter></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    
+        <div class="friends">
+            <div>FRIENDS</div>
+            
+                
+            
+                
+            
+                
+            
+        </div>
+    
+    
+</div>
             
         </div>
         <footer class="footer footer-unloaded">
@@ -543,24 +637,6 @@ height:50vh;
 </footer>
     </div>
     <!-- toc -->
-    
-    <div class="toc-wrapper" style=
-    
-
-
-
-
-
-
-
-top:50vh;
-
-    >
-        <div class="toc-catalog">
-            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
-        </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#IntentServce"><span class="toc-number">1.</span> <span class="toc-text">IntentServce</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#IntentServce总结"><span class="toc-number">2.</span> <span class="toc-text">IntentServce总结</span></a></li></ol>
-    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1133,8 +1209,6 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
-    
-        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>

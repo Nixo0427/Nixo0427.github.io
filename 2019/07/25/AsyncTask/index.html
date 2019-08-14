@@ -399,7 +399,9 @@ height:50vh;
 <h2 id="title-WebView面试详解"><a href="#title-WebView面试详解" class="headerlink" title="title WebView面试详解"></a>title WebView面试详解</h2><h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>AsyncTask内部是由handler+线程池实现的</p>
 <p>##优点</p>
 <ul>
-<li>由于AsyncTask内部提供了线程池，就会对我们的线程有一个很好地管理和控制，也能减少对于反复创建销毁线程的不必要的开销<h2 id="内部代码介绍"><a href="#内部代码介绍" class="headerlink" title="内部代码介绍"></a>内部代码介绍</h2></li>
+<li>由于AsyncTask内部提供了线程池，就会对我们的线程有一个很好地管理和控制，也能减少对于反复创建销毁线程的不必要的开销</li>
+</ul>
+<h2 id="内部代码介绍"><a href="#内部代码介绍" class="headerlink" title="内部代码介绍"></a>内部代码介绍</h2><ul>
 <li>asyncTask是个抽象类，需要子类继承</li>
 <li>onPreExecute() - 主线程执行的，是在任务执行前运行的可以做一些数据初始化操作</li>
 <li>doInBackground() - 子线程运行的，可以进行耗时操作</li>
@@ -439,6 +441,11 @@ height:50vh;
     <!-- paginator  -->
     <ul class="post-paginator">
         <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2019/08/07/为什么Loop的死循环不会导致APP ANR？/" title= "">
+                    <div class="nextTitle">[Untitled Post]</div>
+                </a>
             
         </li>
         <li class="previous">
@@ -803,9 +810,48 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 20
+        Total : 23
         </div>
         <!-- search  -->
         
@@ -846,6 +892,16 @@ top:50vh;
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/14</span><a class="archive-post-title" href= "/2019/08/14/浅谈设计模式/" >[Untitled Post]</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/08</span><a class="archive-post-title" href= "/2019/08/08/Android 多进程/" >[Untitled Post]</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1007,6 +1063,20 @@ top:50vh;
     
         <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/07/25/AsyncTask/" >[Untitled Post]</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/08/07/为什么Loop的死循环不会导致APP ANR？/" >[Untitled Post]</a>
         </li>
     
     </div>

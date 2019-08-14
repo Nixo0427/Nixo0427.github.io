@@ -346,6 +346,83 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/08/14/浅谈设计模式/" >
+            
+                <span>[Untitled Post]</span>
+        </a>
+        <div class="abstract-content">
+            
+title:Nixo浅谈设计模式前言
+在我眼里设计模式是对代码的一种高度封装，让代码从幼虫变为茧的过程，在Android开发中，有很多框架的设计模式都是非常优雅高效的，例如Retrofit2中使用了代理模式，适配器模式，构造者模式将框架设计的非常完美且扩展性Nice，再例如RxJava使用的观察者模式将我们的异步开发可以像同步开发一样流式使用，这都是设计模式的资深使用，如上的那些框架并不是个人开发的，是多个工程师一起设计，一起合作打造，而在我们这些小生眼里，去理解都要抽丝剥茧的去学习，去挖掘，回首运用在自己的项目当中，这也是我们学习框架的一个主要目的，那就是学习他们的设计理念，设计模式...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/14</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/08/08/Android 多进程/" >
+            
+                <span>[Untitled Post]</span>
+        </a>
+        <div class="abstract-content">
+            
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/08</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/08/07/为什么Loop的死循环不会导致APP ANR？/" >
+            
+                <span>[Untitled Post]</span>
+        </a>
+        <div class="abstract-content">
+            
+title:为什么Android主线程的looper.loop不会导致循环卡死Looper与Hnadler其实是通过CS模式由Binder进行通讯的
+只有主线程发送给Handler让Looper循环的消息中进行了耗时操作才会导致ANR，而Looper中不会，因为Looper在没有消息时会将线程睡眠。
+
+Looper并不是运行在主线程里的，他是运行在binder线程中，在ActivityThread的main()方法中创建好Looper和ActivityThread后通过thread.attach方法传递false创建了一个新的binder线程，在调用Looper.loop开启循环
+
+H...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/07</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/07/25/AsyncTask/" >
             
                 <span>[Untitled Post]</span>
@@ -355,12 +432,14 @@
 title WebView面试详解介绍AsyncTask内部是由handler+线程池实现的
 ##优点
 
-由于AsyncTask内部提供了线程池，就会对我们的线程有一个很好地管理和控制，也能减少对于反复创建销毁线程的不必要的开销内部代码介绍
+由于AsyncTask内部提供了线程池，就会对我们的线程有一个很好地管理和控制，也能减少对于反复创建销毁线程的不必要的开销
+
+内部代码介绍
 asyncTask是个抽象类，需要子类继承
 onPreExecute() - 主线程执行的，是在任务执行前运行的可以做一些数据初始化操作
 doInBackground() - 子线程运行的，可以进行耗时操作
 onProgressUpdata() -主线程运行，在publishProgress()调用之后执行更新进度
-onPostExecute() ...
+onPostExecute(...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -562,102 +641,10 @@ Thread是程序执行的最小单元，它是分配CPU的基本单位
         </div>
     </article>
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/07/24/Servce/" >
-            
-                <span>Servce先导：线程，IntentServce，Binder等</span>
-        </a>
-        <div class="abstract-content">
-            #Servce
-
-Serve和线程的区别和场景(Servce是Android的四大组件之一，他是运行在主线程当中的，他是系统进程托管的)
-如何管理Servce的生命周期(BindServce和StartServce 两种开启方式生命周期不同，但是两者有一样的地方)
-Servce和IntentServce的区别(Servce不是独立的线程也不是独立的进程，他是依赖于应用程序的主线程的，所以不建议在Servce中进行耗时操作和复杂逻辑因为这样会造成ANR为解决以上问题，google提供了IntentServce这个类，IntentServce中有一个工作线程去处理那些耗时操作IntentSe...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/24</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/07/20/Activity启动流程/" >
-            
-                <span>Activity启动流程</span>
-        </a>
-        <div class="abstract-content">
-            首先Activity启动需要使用到6个点，分别是
-
-AMS
-ActivityStackSupervisor
-ActivityStack
-ActivityManagerServce
-PackageManagerService
-ActivityThread
-
- 首先laucher点击后，调用startActivitySatefly 之后会调用Activity的startActivity 因为laucher也是一个Activity，之后startActivity内部其实是调用了startActivityForResult request是-1也就是没有回调，所以平时开发的时候，使用startA...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/20</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/07/18/内存优化2/" >
-            
-                <span>内存优化2 - OOM面试题</span>
-        </a>
-        <div class="abstract-content">
-            OOM
-1.什么事是OOM
-2.一些容易混淆的概念
-3.如何解决OOM
-
-什么是OOM 在线上项目中异常后台日志中会看到一些OOM的异常，OOM其实就是当我们使用的内存加上申请的内存大于Dailvk虚拟机最大的内存限制，就会出现Out of memory异常，也就是内存溢出，内存不够导致的，大部分OOM问题都跟Bitmap加载相关。
-容易混淆的概念  内存溢出/内存泄漏/内存抖动
-
-内存溢出(OOM)
-内存抖动(内存抖动是短时间内大量的对象被创建出来，然后瞬间的释放，瞬间产生的对象会严重的占用内存区域，然后频繁的触发GC)
-内存泄漏(进程中的对象已经不被其他对象引用到了，但是他们可以直接...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/18</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
     <!-- paginator  -->
     
     <nav class="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">NEXT &#62;</a>
+        <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/">NEXT &#62;</a>
     </nav>
     
 </main>
@@ -981,9 +968,48 @@ ActivityThread
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 20
+        Total : 23
         </div>
         <!-- search  -->
         
@@ -1024,6 +1050,16 @@ ActivityThread
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/14</span><a class="archive-post-title" href= "/2019/08/14/浅谈设计模式/" >[Untitled Post]</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/08</span><a class="archive-post-title" href= "/2019/08/08/Android 多进程/" >[Untitled Post]</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1185,6 +1221,20 @@ ActivityThread
     
         <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/07/25/AsyncTask/" >[Untitled Post]</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/08/07/为什么Loop的死循环不会导致APP ANR？/" >[Untitled Post]</a>
         </li>
     
     </div>
