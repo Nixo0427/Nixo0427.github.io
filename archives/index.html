@@ -346,6 +346,47 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/12/02/养老生活问题汇总/" >
+            
+                <span>养老App问题汇总</span>
+        </a>
+        <div class="abstract-content">
+            日期 3号-&gt;11号  (12号自测)
+UI界面问题
+指示器(换一个框架，能自定义下划线的)
+退出登录(放在设置里)
+发现那些一个图片的时候换个控件(要能设置缩放type)
+社团暂无内容要below全部社团
+获取定位Dialog重构一些界面 
+一些状态栏
+创建社团界面优化
+
+缺少的模块
+搜索(界面，接口)
+创建活动(界面)
+社团历史动态(接口)
+
+现发现的Bug
+设置兴趣标签(ArrayList转Json字符串出错)
+
+
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/02</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/08/14/浅谈设计模式/" >
             
                 <span>Nixo浅谈设计模式</span>
@@ -601,37 +642,6 @@ Servce是运行在程序后台的，为了保证应用某些组件仍然可以�
 IntentServceintentServce是继承Servce去处理异步请求的一个类
 
 内部有一个工作线程HandlerThread来处理耗时操作任务...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/24</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/07/24/Servce与Thread区别/" >
-            
-                <span>Servce与Thread使用场景与区别</span>
-        </a>
-        <div class="abstract-content">
-            Servce与Thread使用场景与区别
-Thread是程序执行的最小单元，它是分配CPU的基本单位
-
-线程的生命周期
-新建(new Thread之后 Thread就进入了新建状态，还有可能进入未启动状态)
-就绪(线程已经启动了，正在等待CPU分配的时间片，在就绪队列中，排队等候CPU的资源)
-运行(线程已经获得了CPU的资源，正在执行任务，这时候正在执行run()方法，此时除非此线程自动放弃CPU的资源，或者有更高优先级的线程进入，否则该线程就会一直运行，直到结束)
-死亡(当线程执行完毕，或者被其他线程杀死的时候，线程就进入了一种死亡状态，这时候线程就不可能进入就绪或者等待的状态)
-阻...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -1000,18 +1010,9 @@ Thread是程序执行的最小单元，它是分配CPU的基本单位
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 23
+        Total : 24
         </div>
         <!-- search  -->
         
@@ -1027,39 +1028,6 @@ Thread是程序执行的最小单元，它是分配CPU的基本单位
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/01</span><a class="archive-post-title" href= "/2019/07/01/Activity的启动流程是怎样的/" >Activity的启动流程是怎样的？</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/07/01/Android为什么非UI线程不能更新UI/" >Android中为什么非UI线程不能更新UI？</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2019 </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">08/14</span><a class="archive-post-title" href= "/2019/08/14/浅谈设计模式/" >Nixo浅谈设计模式</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">08/08</span><a class="archive-post-title" href= "/2019/08/08/Android 多进程/" >[Untitled Post]</a>
         </li>
     
@@ -1070,145 +1038,12 @@ Thread是程序执行的最小单元，它是分配CPU的基本单位
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/24</span><a class="archive-post-title" href= "/2019/07/24/Parcelable和Serializable的差异/" >Parcelable和Serializable的差异</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/24</span><a class="archive-post-title" href= "/2019/07/24/BindServce和StartServce调用顺序/" >BindServce和StartServce调用顺序</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/24</span><a class="archive-post-title" href= "/2019/07/24/Servce/" >Servce先导：线程，IntentServce，Binder等</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/24</span><a class="archive-post-title" href= "/2019/07/24/Servce与Thread区别/" >Servce与Thread使用场景与区别</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">07/20</span><a class="archive-post-title" href= "/2019/07/20/Activity启动流程/" >Activity启动流程</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2019/07/15/蓝瓴笔试题笔经/" >蓝瓴笔试题笔经</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/01</span><a class="archive-post-title" href= "/2019/07/01/如何跨进程启动Activity/" >如何跨App启动Activity？有哪些注意事项？</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/01</span><a class="archive-post-title" href= "/2019/07/01/如何stop一个线程/" >如何停止一个线程？</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/21</span><a class="archive-post-title" href= "/2019/06/21/hello-world/" >Hello World</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/07/05/线程面试题/" >对Thread的理解？线程状态？阻塞和运行状态区别？</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/07/05/HashMap面试题/" >HashMap 面试题</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/07/07/HashMap个人理解/" >HashMap个人理解</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/07/17/内存优化/" >内存优化</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/07/18/内存优化2/" >内存优化2 - OOM面试题</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/07/24/WebView/" >[Untitled Post]</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/07/24/如何管理Servce/" >Servce与Thread使用场景与区别+IntentServce的区别</a>
+            <span class="archive-post-date">07/01</span><a class="archive-post-title" href= "/2019/07/01/Activity的启动流程是怎样的/" >Activity的启动流程是怎样的？</a>
         </li>
     
     
@@ -1236,7 +1071,205 @@ Thread是程序执行的最小单元，它是分配CPU的基本单位
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/07/01/Android为什么非UI线程不能更新UI/" >Android中为什么非UI线程不能更新UI？</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/24</span><a class="archive-post-title" href= "/2019/07/24/BindServce和StartServce调用顺序/" >BindServce和StartServce调用顺序</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/07/07/HashMap个人理解/" >HashMap个人理解</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/07/05/HashMap面试题/" >HashMap 面试题</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/07/24/WebView/" >[Untitled Post]</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/02</span><a class="archive-post-title" href= "/2019/12/02/养老生活问题汇总/" >养老App问题汇总</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/14</span><a class="archive-post-title" href= "/2019/08/14/浅谈设计模式/" >Nixo浅谈设计模式</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/24</span><a class="archive-post-title" href= "/2019/07/24/Parcelable和Serializable的差异/" >Parcelable和Serializable的差异</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/24</span><a class="archive-post-title" href= "/2019/07/24/Servce/" >Servce先导：线程，IntentServce，Binder等</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/24</span><a class="archive-post-title" href= "/2019/07/24/Servce与Thread区别/" >Servce与Thread使用场景与区别</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/08/07/为什么Loop的死循环不会导致APP ANR？/" >[Untitled Post]</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2019/07/15/蓝瓴笔试题笔经/" >蓝瓴笔试题笔经</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/01</span><a class="archive-post-title" href= "/2019/07/01/如何跨进程启动Activity/" >如何跨App启动Activity？有哪些注意事项？</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/21</span><a class="archive-post-title" href= "/2019/06/21/hello-world/" >Hello World</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/07/17/内存优化/" >内存优化</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/07/24/如何管理Servce/" >Servce与Thread使用场景与区别+IntentServce的区别</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/07/18/内存优化2/" >内存优化2 - OOM面试题</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/01</span><a class="archive-post-title" href= "/2019/07/01/如何stop一个线程/" >如何停止一个线程？</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/07/05/线程面试题/" >对Thread的理解？线程状态？阻塞和运行状态区别？</a>
         </li>
     
     </div>
